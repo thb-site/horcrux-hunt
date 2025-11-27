@@ -13,10 +13,17 @@ Visit: `https://thb-site.github.io/horcrux-hunt/`
 
 ## 🎮 How to Play
 1. Open the website on your phone or computer
-2. Read the riddles and search the house for each Horcrux
-3. **Take a photo** of each item you find (DO NOT touch the items!)
-4. Use the tracker to mark found items and earn House Points
-5. Game Master can access answers with the secret password
+2. Click **"Play the Game!"** to start the interactive hunt
+3. Read each riddle and search the house
+4. **Take a photo** of each item you find (DO NOT touch!)
+5. Submit your answer - you get **2 tries** per Horcrux
+6. See your final score and rank at the end!
+
+### Game Features
+- **2 tries per Horcrux** - If incorrect twice, that item is locked
+- **Instant feedback** - Know immediately if you're right or wrong
+- **Final results** - See all answers with photos at the end
+- **Rankings** - Earn your wizarding rank based on score
 
 ## 📸 Important Rules
 - **DO NOT TOUCH** any of the magical items
@@ -30,7 +37,8 @@ The answer key is protected by a password.
 
 ## 📂 Files Included
 - `index.html` - Main menu/landing page
-- `riddles.html` - All 15 riddles to solve
+- `game.html` - **Interactive game** with answer submission
+- `riddles.html` - All 15 riddles to solve (view only)
 - `tracker.html` - Interactive progress tracker
 - `answers.html` - Answer key with photos (password protected)
 
