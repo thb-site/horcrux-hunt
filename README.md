@@ -8,6 +8,8 @@ Visit: `https://thb-site.github.io/horcrux-hunt/`
 ## 📱 Features
 - **Mobile-friendly** - Works on phones, tablets, and desktop
 - **Interactive gameplay** - Submit answers and get instant feedback
+- **Photo uploads** - Take photos of items you find
+- **Character reactions** - Harry, Hermione, Voldemort respond to your answers!
 - **Hint system** - Use hints when stuck (costs points!)
 - **15 Horcruxes** - Hidden throughout the Themed House
 - **Automatic scoring** - See your rank at the end
@@ -16,10 +18,11 @@ Visit: `https://thb-site.github.io/horcrux-hunt/`
 1. Open the website on your phone
 2. Enter your wizard name and start the game
 3. Read each riddle and search the house
-4. **Take a photo** of the item you find (DO NOT touch!)
+4. **📸 Take a photo** of the item you find (DO NOT touch!)
 5. Type your answer and submit
 6. Use a **hint** if stuck (costs -3 points)
-7. See your final score and ranking!
+7. See character reactions based on your answer!
+8. View your final score and ranking at the end
 
 ## ⚡ Scoring System
 
@@ -50,10 +53,18 @@ Visit: `https://thb-site.github.io/horcrux-hunt/`
 - Simply take a photo as proof of finding each Horcrux
 - Help preserve the magic for future witches and wizards!
 
+## 🔐 Game Master Access
+Secret access to all answers is hidden in the menu. 
+
+**Hint for staff:** *Tap the logo!* 🏠
+
+**Password hint:** *What spell unlocks doors?* 🗝️
+
 ## 📂 Files Included
-- `index.html` - Main menu
-- `game.html` - Interactive game with hints
+- `index.html` - Main menu (with secret access)
+- `game.html` - Interactive game with photo upload
 - `howtoplay.html` - Rules and instructions
+- `answers.html` - Password-protected answer key
 
 ## 🏠 About Themed House
 This Horcrux Hunt was created for [Themed House](https://www.facebook.com/themedhouseph) - a magical Harry Potter themed vacation rental.
