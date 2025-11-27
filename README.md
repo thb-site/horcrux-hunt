@@ -1,0 +1,62 @@
+# ⚡ Horcrux Hunt - Harry Potter Scavenger Game
+
+A magical Harry Potter-themed scavenger hunt game with 15 riddles to solve!
+
+## 🌐 Live Demo
+Visit: `https://thb-site.github.io/horcrux-hunt/`
+
+## 📱 Features
+- **Mobile-friendly** - Works on phones, tablets, and desktop
+- **Interactive gameplay** - Submit answers and get instant feedback
+- **Hint system** - Use hints when stuck (costs points!)
+- **15 Horcruxes** - Hidden throughout the Themed House
+- **Automatic scoring** - See your rank at the end
+
+## 🎮 How to Play
+1. Open the website on your phone
+2. Enter your wizard name and start the game
+3. Read each riddle and search the house
+4. **Take a photo** of the item you find (DO NOT touch!)
+5. Type your answer and submit
+6. Use a **hint** if stuck (costs -3 points)
+7. See your final score and ranking!
+
+## ⚡ Scoring System
+
+| Action | Points |
+|--------|--------|
+| ✅ Correct Answer | +10 points |
+| 💡 Use a Hint | -3 points |
+| ❌ Wrong Answer | 0 points |
+
+- **2 tries** per Horcrux
+- **1 hint** per Horcrux
+- Score can go **negative** if you use many hints!
+- Maximum score: **150 points**
+
+## 🏆 Rankings
+
+| Points | Rank |
+|--------|------|
+| 150 | ⭐ Auror ⭐ |
+| 120-149 | N.E.W.T. Master |
+| 90-119 | O.W.L. Student |
+| 50-89 | First Year |
+| 1-49 | Muggle |
+| ≤ 0 | Squib 😢 |
+
+## 📸 Important Rules
+- **DO NOT TOUCH** any of the magical items
+- Simply take a photo as proof of finding each Horcrux
+- Help preserve the magic for future witches and wizards!
+
+## 📂 Files Included
+- `index.html` - Main menu
+- `game.html` - Interactive game with hints
+- `howtoplay.html` - Rules and instructions
+
+## 🏠 About Themed House
+This Horcrux Hunt was created for [Themed House](https://www.facebook.com/themedhouseph) - a magical Harry Potter themed vacation rental.
+
+## ⚡ Credits
+*"It does not do to dwell on dreams and forget to live." - Albus Dumbledore*
