@@ -396,7 +396,7 @@
             <div class="total-section">
                 <div class="total-label">Total House Points Earned</div>
                 <div class="total-score" id="totalScore">0</div>
-                <div class="total-max">out of 100 possible points</div>
+                <div class="total-max">out of 150 possible points</div>
                 <div class="rank-display">
                     <div class="rank-label">Your Rank</div>
                     <div class="rank-name" id="rankName">Muggle</div>
@@ -407,29 +407,40 @@
                 <div class="rank-title">🏆 Wizarding Rankings 🏆</div>
                 <div class="rank-grid">
                     <div class="rank-item">
-                        <div class="rank-points">0-30</div>
+                        <div class="rank-points">0-40</div>
                         <div class="rank-item-name">Muggle</div>
                     </div>
                     <div class="rank-item">
-                        <div class="rank-points">40-50</div>
+                        <div class="rank-points">50-80</div>
                         <div class="rank-item-name">1st Year</div>
                     </div>
                     <div class="rank-item">
-                        <div class="rank-points">60-70</div>
+                        <div class="rank-points">90-110</div>
                         <div class="rank-item-name">O.W.L.</div>
                     </div>
                     <div class="rank-item">
-                        <div class="rank-points">80-90</div>
+                        <div class="rank-points">120-140</div>
                         <div class="rank-item-name">N.E.W.T.</div>
                     </div>
                     <div class="rank-item">
-                        <div class="rank-points">100</div>
+                        <div class="rank-points">150</div>
                         <div class="rank-item-name">Auror</div>
                     </div>
                 </div>
             </div>
             
             <button class="reset-btn" onclick="resetProgress()">🔄 Reset Progress</button>
+            
+            <div style="background: rgba(114, 47, 55, 0.15); border: 2px solid #722f37; border-radius: 8px; padding: 15px; margin: 15px 0; text-align: center;">
+                <div style="font-family: 'Cinzel', serif; font-size: clamp(11px, 3vw, 13px); color: #722f37; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">
+                    📸 Important 📸
+                </div>
+                <div style="font-size: clamp(11px, 3vw, 13px); line-height: 1.4;">
+                    <strong>DO NOT TOUCH</strong> items!<br>
+                    Take a <strong>photo</strong> as proof.<br>
+                    <em>Preserve the magic!</em>
+                </div>
+            </div>
             
             <div class="footer">
                 <p class="footer-text">
@@ -452,7 +463,12 @@
             { num: "VII", name: "The Moving Chronicles" },
             { num: "VIII", name: "The Warrior's Game" },
             { num: "IX", name: "The Time Keeper" },
-            { num: "X", name: "The United Crest" }
+            { num: "X", name: "The United Crest" },
+            { num: "XI", name: "The Loyal Warmth" },
+            { num: "XII", name: "The Secret Gateway" },
+            { num: "XIII", name: "The Founders' Colors" },
+            { num: "XIV", name: "The Acceptance Scroll" },
+            { num: "XV", name: "The Wizard's Tools" }
         ];
         
         let checkedItems = JSON.parse(localStorage.getItem('horcruxProgress') || '[]');
@@ -485,10 +501,10 @@
             document.getElementById('totalScore').textContent = score;
             
             let rank = 'Muggle';
-            if (score === 100) rank = '⭐ Auror ⭐';
-            else if (score >= 80) rank = 'N.E.W.T. Master';
-            else if (score >= 60) rank = 'O.W.L. Student';
-            else if (score >= 40) rank = 'First Year';
+            if (score === 150) rank = '⭐ Auror ⭐';
+            else if (score >= 120) rank = 'N.E.W.T. Master';
+            else if (score >= 90) rank = 'O.W.L. Student';
+            else if (score >= 50) rank = 'First Year';
             
             document.getElementById('rankName').textContent = rank;
         }
