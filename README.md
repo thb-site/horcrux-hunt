@@ -49,9 +49,9 @@ Visit: `https://thb-site.github.io/horcrux-hunt/`
 | ≤ 0 | Squib 😢 |
 
 ## 📸 Important Rules
-- **DO NOT TOUCH** any of the magical items
+- **Please be gentle** with the magical items
+- Avoid touching items to preserve them for the next wizards
 - Simply take a photo as proof of finding each Horcrux
-- Help preserve the magic for future witches and wizards!
 
 ## 🔐 Game Master Access
 Secret access to all answers is hidden in the menu. 

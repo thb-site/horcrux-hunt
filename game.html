@@ -576,6 +576,105 @@
         }
         
         .play-again-btn:hover { background: #d4af37; color: #722f37; }
+        
+        /* Thank You Section */
+        .thank-you-section {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(114, 47, 55, 0.2);
+            border: 2px solid #722f37;
+            border-radius: 15px;
+        }
+        
+        .thank-you-divider {
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 0 auto 20px;
+        }
+        
+        .thank-you-stars {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .thank-you-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(16px, 5vw, 22px);
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        
+        .thank-you-message {
+            font-size: clamp(13px, 3.5vw, 15px);
+            line-height: 1.6;
+            color: #f4e4bc;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-message em {
+            color: #d4af37;
+            font-style: italic;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        
+        .contact-icon {
+            font-size: 20px;
+        }
+        
+        .contact-text {
+            color: #f4e4bc;
+            text-align: left;
+        }
+        
+        .contact-text small {
+            color: #d4af37;
+            font-size: 0.85em;
+        }
+        
+        .fb-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4267B2;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(66, 103, 178, 0.15);
+            border: 1px solid #4267B2;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .fb-link:hover {
+            background: #4267B2;
+            color: white;
+        }
+        
+        .fb-link .contact-text {
+            color: inherit;
+        }
+        
+        .farewell-quote {
+            font-style: italic;
+            font-size: clamp(11px, 3vw, 13px);
+            color: #d4af37;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -705,6 +804,30 @@
             
             <div class="results-list" id="resultsList"></div>
             <button class="play-again-btn" onclick="playAgain()">🔄 Play Again</button>
+            
+            <!-- Thank You Section -->
+            <div class="thank-you-section">
+                <div class="thank-you-divider"></div>
+                <div class="thank-you-stars">🙏✨🙏</div>
+                <h2 class="thank-you-title">Thank You for Choosing Themed House!</h2>
+                <p class="thank-you-message">
+                    We hope you enjoyed the Horcrux Hunt and your magical stay with us.<br>
+                    <em>May the magic stay with you always!</em>
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span class="contact-text">309A Longlong Feder Road, Baguio City<br><small>Search "Themed House Baguio" on Google Maps</small></span>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://www.facebook.com/profile.php?id=61577777049378" target="_blank" class="fb-link">
+                            <span class="contact-icon">📱</span>
+                            <span class="contact-text">Follow us on Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="farewell-quote">"Until we meet again... Mischief Managed!"</p>
+            </div>
         </div>
     </div>
     
@@ -834,29 +957,55 @@
                 score += 10;
                 totalCorrect++;
                 updateScoreDisplay();
+                playSound('correct');
                 showFeedback(true, horcrux);
-            } else if (triesLeft > 0) {
-                // Still have tries left
-                showWrongTryFeedback();
             } else {
-                // No more tries
-                totalWrong++;
+                // Show bad character immediately on ANY wrong answer
+                if (triesLeft <= 0) {
+                    totalWrong++;
+                }
+                playSound('wrong');
                 showFeedback(false, horcrux);
             }
         }
         
-        function showWrongTryFeedback() {
-            document.getElementById('triesLeft').textContent = 'Tries: ' + triesLeft;
-            document.getElementById('triesLeft').className = 'tries-left warning';
-            document.getElementById('answerInput').value = '';
-            document.getElementById('answerInput').focus();
+        // Sound effects
+        function playSound(type) {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
             
-            // Quick shake animation
-            const card = document.querySelector('.game-card');
-            card.style.animation = 'shake 0.5s';
-            setTimeout(() => card.style.animation = '', 500);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
             
-            alert('❌ Not quite right! You have ' + triesLeft + ' try left.');
+            if (type === 'correct') {
+                // Happy ascending arpeggio
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                let time = audioCtx.currentTime;
+                notes.forEach((freq, i) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.frequency.value = freq;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.3, time + i * 0.1);
+                    gain.gain.exponentialDecayTo && gain.gain.exponentialDecayTo(0.01, time + i * 0.1 + 0.3);
+                    gain.gain.setValueAtTime(0.3, time + i * 0.1);
+                    gain.gain.linearRampToValueAtTime(0.01, time + i * 0.1 + 0.3);
+                    osc.start(time + i * 0.1);
+                    osc.stop(time + i * 0.1 + 0.3);
+                });
+            } else {
+                // Descending spooky sound
+                oscillator.type = 'sawtooth';
+                oscillator.frequency.setValueAtTime(400, audioCtx.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.5);
+                gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.5);
+            }
         }
         
         function showFeedback(isCorrect, horcrux) {
@@ -878,33 +1027,58 @@
                 document.getElementById('feedbackStatus').className = 'feedback-status wrong';
                 document.getElementById('feedbackStatus').textContent = '❌ WRONG!';
                 document.getElementById('pointsEarned').className = 'points-earned negative';
-                document.getElementById('pointsEarned').textContent = '0 points';
+                document.getElementById('pointsEarned').textContent = triesLeft > 0 ? 'Try again!' : '0 points';
             }
             
             document.getElementById('charEmoji').textContent = response.emoji;
             document.getElementById('charName').textContent = response.char;
             document.getElementById('charMessage').textContent = '"' + response.msg + '"';
-            document.getElementById('answerReveal').textContent = horcrux.answers[0].toUpperCase();
-            document.getElementById('locationReveal').textContent = '📍 ' + horcrux.location;
+            
+            // Only show answer if correct OR no tries left
+            const answerRevealSection = document.querySelector('.answer-reveal');
+            const locationReveal = document.getElementById('locationReveal');
+            if (isCorrect || triesLeft <= 0) {
+                document.getElementById('answerReveal').textContent = horcrux.answers[0].toUpperCase();
+                locationReveal.textContent = '📍 ' + horcrux.location;
+                answerRevealSection.style.display = 'block';
+                locationReveal.style.display = 'block';
+            } else {
+                // Hide answer if they still have tries
+                answerRevealSection.style.display = 'none';
+                locationReveal.style.display = 'none';
+            }
             
             // Show player's photo if they took one
             const playerPhotoEl = document.getElementById('playerPhotoReview');
-            if (currentPhoto) {
+            if (currentPhoto && (isCorrect || triesLeft <= 0)) {
                 playerPhotoEl.src = currentPhoto;
                 playerPhotoEl.style.display = 'block';
             } else {
                 playerPhotoEl.style.display = 'none';
             }
             
-            // Update button text for last horcrux
+            // Update button text based on situation
             const nextBtn = document.getElementById('nextBtnModal');
-            if (currentIndex >= 14) {
+            if (!isCorrect && triesLeft > 0) {
+                nextBtn.textContent = '🔄 Try Again (' + triesLeft + ' left)';
+                nextBtn.onclick = tryAgain;
+            } else if (currentIndex >= 14) {
                 nextBtn.textContent = 'See Results! 🏆';
+                nextBtn.onclick = nextHorcrux;
             } else {
                 nextBtn.textContent = 'Next Horcrux →';
+                nextBtn.onclick = nextHorcrux;
             }
             
             modal.style.display = 'block';
+        }
+        
+        function tryAgain() {
+            document.getElementById('feedbackModal').style.display = 'none';
+            document.getElementById('answerInput').value = '';
+            document.getElementById('answerInput').focus();
+            document.getElementById('triesLeft').textContent = 'Tries: ' + triesLeft;
+            document.getElementById('triesLeft').className = 'tries-left warning';
         }
         
         function nextHorcrux() {

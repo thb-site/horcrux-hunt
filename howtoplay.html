@@ -224,6 +224,50 @@
             background: #d4af37;
             color: #722f37;
         }
+        
+        .contact-footer {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid #8b5a2b;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(14px, 4vw, 16px);
+            color: #722f37;
+            margin-bottom: 10px;
+        }
+        
+        .contact-address {
+            font-size: clamp(12px, 3.5vw, 14px);
+            color: #2c1810;
+            margin-bottom: 5px;
+        }
+        
+        .contact-maps {
+            font-size: clamp(11px, 3vw, 12px);
+            color: #5a4a3a;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .fb-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4267B2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(11px, 3vw, 13px);
+            transition: all 0.3s;
+        }
+        
+        .fb-btn:hover {
+            background: #365899;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -264,7 +308,7 @@
                     </div>
                     <div class="step">
                         <div class="step-num">3</div>
-                        <div class="step-text"><strong>📸 Upload a photo</strong> of what you found (DO NOT touch!)</div>
+                        <div class="step-text"><strong>📸 Upload a photo</strong> of what you found (please be gentle!)</div>
                     </div>
                     <div class="step">
                         <div class="step-num">4</div>
@@ -352,13 +396,22 @@
             </div>
             
             <div class="warning-box">
-                <div class="warning-title">⚠️ Very Important ⚠️</div>
-                <strong>DO NOT TOUCH</strong> any of the magical items!<br>
-                Simply take a photo as proof.<br>
-                <em>Help preserve the magic for future guests.</em>
+                <div class="warning-title">🪄 Handle With Care 🪄</div>
+                <strong>Please be gentle with the Horcruxes!</strong><br>
+                Avoid touching the items to preserve them for the next wizards.<br>
+                <em>Simply take a photo as proof of your discovery.</em>
             </div>
             
             <a href="game.html" class="play-btn">⚡ Start Playing! ⚡</a>
+            
+            <div class="contact-footer">
+                <div class="contact-title">📍 Find Us</div>
+                <p class="contact-address">309A Longlong Feder Road, Baguio City</p>
+                <p class="contact-maps">Search "Themed House Baguio" on Google Maps</p>
+                <a href="https://www.facebook.com/profile.php?id=61577777049378" target="_blank" class="fb-btn">
+                    📱 Follow us on Facebook
+                </a>
+            </div>
         </div>
     </div>
 </body>
